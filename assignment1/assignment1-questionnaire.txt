@@ -1,0 +1,77 @@
+UV Distributed Information Management
+Summer semester 2022
+Questionnaire Assignment 1
+================================================================================
+
+The purpose of this questionnaire is to deepen the student's understanding of
+assignment 1 and the topics covered in the lecture. The main focus will be the
+*correctness* and the *quality* of an answer, not its length. For some
+questions, we will provide rough hints to give you a head start.
+
+You are free to answer the questions directly in this textfile or use another
+editor/word processor. The following file formats will be accepted for the
+submission: .txt, .pdf, .odt, .doc, .docx. Please note that other file formats
+will result in 0 points (for this questionnaire). The preferred file formats are
+.txt and .pdf (most word processors support an export as PDF file). In any case,
+please make sure that the questions/answers are named/numbered properly!
+
+This questionnaire will be discussed during the after-assignment meeting. Before
+the meeting starts, the group will be informed about the preliminary points by
+the instructor (either at the beginning of the meeting or via Blackboard). The
+final points will be set after the meeting. This questionnaire contributes a
+maximum of 8 points to the overall points of assignment 1.
+
+================================================================================
+
+Question F1:
+Change query Q2 such that it only reports movies named 'The Avengers' that
+started after 1990 (startYear). Please formulate the SQL query in the answer.
+For query Q2, we refer to the assignment description. 
+
+Answers A1:
+<Your answer can go here>
+
+================================================================================
+
+Question F2:
+In the lecture, we discussed consistency constraints. Name and describe at least
+one consistency constraint of table 'names'. Is this a constraint on a column or
+on the entire table?
+
+Hints:
+You can either look at the 'CREATE TABLE' statement in the file create_db.sql or
+you can use the command '\d names;' to get some information about the table
+(including the consistency constraints).
+
+Answers A2:
+<Your answer can go here>
+
+================================================================================
+
+Question F3:
+In the lecture, we discussed three levels of abstraction (bottom up): (a) the
+physical level, (b) the logical level, and (c) the view level. Name the level we
+operate on for this assignment. Please also justify your choice.
+
+Answers A3:
+<Your answer can go here>
+
+================================================================================
+
+Question F4:
+Consider the query plan of query Q4. Try to understand and describe what
+information is provided by the query plan. Most importantly, what is the link
+between the query and the query plan. Is the query plan declarative or
+procedural?
+
+Hints:
+Your answer should be on an intuitive level, there is no need to understand all
+the details (i.e., numbers) that are shown in the query plan. To understand the
+terminology, we recommend to read the PostgreSQL documentation of the 'EXPLAIN'
+statement (in particular, the first 3 explanations in the Basics section):
+https://www.postgresql.org/docs/current/using-explain.html.
+'Seq Scan' refers to a so-called sequential scan, that is, the database system
+will simply read all the data of the respective table (from start to end).
+
+Answers A4:
+<Your answer can go here>
