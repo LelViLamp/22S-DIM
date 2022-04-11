@@ -2,6 +2,7 @@
 
 import psycopg2 as pg2
 
+
 """
 INSTRUCTION TASK 1.4
 --------------------
@@ -13,13 +14,14 @@ results (i.e., all the tuples that are returned by PostgreSQL; output format doe
 as long as it is human-readable).
 """
 
+
 # Credentials
 dbname = 'assignment1'
 username = 'dbtutorial'
 password = 'dbpwd1'
 
 
-# Some helper function
+# Some helper functions
 def print_query(query : str, qid : str = '', offset_line : bool = True):
     """Prints a SQL query (statement) to the console.
 
@@ -69,6 +71,7 @@ def print_records(records: list[tuple]):
           sep="")
     for record in records:
         print(record)
+
 
 # Execute file from shell
 if __name__ == "__main__":
