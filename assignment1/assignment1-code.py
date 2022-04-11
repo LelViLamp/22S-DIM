@@ -87,7 +87,7 @@ if __name__ == "__main__":
         queries = {
             'q1': "SELECT * FROM names WHERE primaryName = 'Chris Hemsworth';",
             'q2': "SELECT * FROM titles WHERE primaryTitle = 'The Avengers' AND titleType = 'movie';",
-            'q3': "SELECT COUNT(*) FROM names, titles WHERE names.birthYear = titles.startYear AND names.primaryName = 'Scarlett Johansson';",
+            # 'q3': "SELECT COUNT(*) FROM names, titles WHERE names.birthYear = titles.startYear AND names.primaryName = 'Scarlett Johansson';",
             'q4': "EXPLAIN SELECT * FROM titles WHERE primaryTitle = 'The Avengers' and titleType = 'movie';"
         }
         for qid in queries:
