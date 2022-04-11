@@ -18,6 +18,7 @@ dbname = 'assignment1'
 username = 'dbtutorial'
 password = 'dbpwd1'
 
+
 # Some helper function
 def print_query(query : str, qid : str = '', offset_line : bool = True):
     """Prints a SQL query (statement) to the console.
@@ -44,7 +45,7 @@ def print_query(query : str, qid : str = '', offset_line : bool = True):
           f" {qid}" if qid != '' else '',
           ": ",
           query,
-          sep='')       
+          sep='')
 def print_records(records: list[tuple]):
     """States the number of elements in the given list and prints all elements.
 
@@ -79,10 +80,11 @@ if __name__ == "__main__":
     cursor = connection.cursor()
 
     try:
-        # Q1, Q2 & Q4
+        # Q1, Q2, Q3 (modified SQL statement) & Q4
         queries = {
             'q1': "SELECT * FROM names WHERE primaryName = 'Chris Hemsworth';",
             'q2': "SELECT * FROM titles WHERE primaryTitle = 'The Avengers' AND titleType = 'movie';",
+            'q3': "SELECT COUNT(*) FROM names, titles WHERE names.birthYear = titles.startYear AND names.primaryName = 'Scarlett Johansson';",
             'q4': "EXPLAIN SELECT * FROM titles WHERE primaryTitle = 'The Avengers' and titleType = 'movie';"
         }
         for qid in queries:
@@ -92,9 +94,9 @@ if __name__ == "__main__":
             records = cursor.fetchall()
             print_records(records)
         
-        # TODO q4 could be printed more nicely not as tuples (each row of execution plan is a tuple) but as 
+        # TODO q4 could be printed more nicely not as tuples (each row of execution plan is a tuple) but as plain text with line breaks
         
-        # Q3
+        # Q3 alternative
         qid = "q3"
         query = "SELECT primaryTitle FROM names, titles WHERE names.birthYear = titles.startYear AND names.primaryName = 'Scarlett Johansson';"
         print_query(query, qid)
@@ -106,7 +108,7 @@ if __name__ == "__main__":
               sep="")
         
     except:
-        print("Exception while executing the query.")
+        print("Exception while executing the query/queries.")
     finally:
         if cursor is not None:
             cursor.close()
