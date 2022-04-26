@@ -1,0 +1,84 @@
+UV Distributed Information Management - Questionnaire Assignment 2
+================================================================================
+
+The purpose of this questionnaire is to deepen the student's understanding of
+assignment 2 and the topics covered in the lecture. The main focus will be the
+*correctness* and the *quality* of an answer, not its length. For some
+questions, we will provide rough hints to make it easier for you.
+
+You are free to answer the questions directly in this textfile or use another
+editor/word processor. The following file formats will be accepted for the
+submission: .txt, .pdf, .odt, .doc, .docx. Please note that other file formats
+will result in 0 points (for this questionnaire). The preferred file formats are
+.txt and .pdf (most word processors support an export as PDF file). In any case,
+please make sure that the questions/answers are named/numbered properly!
+
+This questionnaire will be discussed during the after-assignment meeting. Before
+the meeting starts, the group will be informed about the preliminary points by
+the instructor (either at the beginning of the meeting or via Blackboard). The
+final points will be set after the meeting. This questionnaire contributes a
+maximum of 8 points (2 points per answer) to the overall points of assignment 2.
+
+================================================================================
+
+Question F1:
+Formulate an SQL statement that is equivalent to your modified query Q3 of this
+assignment.
+
+Answer A1:
+<Your answer can go here>
+
+================================================================================
+
+Question F2:
+Familiarize yourself with the insertion of documents in MongoDB and insert a new
+JSON document into the arXiv collection. The new document should have at least
+one string value, one integer value, one array value, and one object value. The
+content of the document is up to you and does not have to be a publication.
+
+Hints:
+https://docs.mongodb.com/manual/tutorial/insert-documents/
+
+Answer A2:
+<Your answer can go here>
+
+================================================================================
+
+Question F3:
+Extend query Q2 such that it only reports publications authored by
+"Michael Stonebraker" in books titled "ICDE" that are not co-authored by
+"Samuel Madden". Please formulate the MQL query in the answer. For query Q2, we
+refer to the assignment description. 
+
+Hints:
+In order to make AND conjunction and equality comparison explicit, query Q2 can
+be rewritten as follows:
+  db.dblp.find({
+    $and: [
+      { "author": { $eq: "Michael Stonebraker" } },
+      { "booktitle": "ICDE" }
+    ]
+  }).pretty()
+
+In this explicit notation, it should be easier to extend query Q2 as required.
+Some other hints:
+  - https://docs.mongodb.com/manual/reference/operator/query/and/
+  - https://docs.mongodb.com/manual/reference/operator/query/eq/
+  - https://docs.mongodb.com/manual/reference/operator/query/ne/
+
+Answer A3:
+<Your answer can go here>
+
+================================================================================
+
+Question F4:
+Familiarize yourself with updates of documents in MongoDB and update the JSON
+document with id "1602.08791" of the arXiv collection as follows: Add a new
+field that has "my_authors" as key and an array as value. The array should
+contain two string values "Michael Stonebraker" and "Samuel Madden".
+
+Hints:
+https://docs.mongodb.com/manual/tutorial/update-documents/
+
+Answer A4:
+<Your answer can go here>
