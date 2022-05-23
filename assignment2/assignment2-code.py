@@ -19,55 +19,55 @@ def main():
         db = connection["assignment2"]
         # Create a dict (aka JSON object) that is used in the find() operation
         
-        """
-        SAMPLE FROM TEMPLATE
-        """
-        json_query = {
-            "author": "Michael Stonebraker",
-            "booktitle": "ICDE"
-        }
+        # """
+        # SAMPLE FROM TEMPLATE
+        # """
+        # json_query = {
+        #     "author": "Michael Stonebraker",
+        #     "booktitle": "ICDE"
+        # }
         
-        # Execute the find() operation and retrieve a cursor to the result set
-        cursor = db.dblp.find(json_query)
+        # # Execute the find() operation and retrieve a cursor to the result set
+        # cursor = db.dblp.find(json_query)
 
-        # Print the documents in the result set to the command line. We use the
-        # pprint module to print the JSON document in a human-readable format (the
-        # standard print function prints the JSON documents in a single line). It is
-        # # up to you whether you want to use pprint or not.
-        for i, x in enumerate(cursor):
-            pprint.pprint({i: x})
-        
-
-
-        """
-        QUERY 1
-        db.dblp.find({ 
-            "author": "Michael Stonebraker"
-        }).pretty()
-        """
-        json_query = {
-            "author": "Michael Stonebraker"
-        }
-        cursor = db.dblp.find(json_query)
-        for i, x in enumerate(cursor):
-            pprint.pprint({i: x})
+        # # Print the documents in the result set to the command line. We use the
+        # # pprint module to print the JSON document in a human-readable format (the
+        # # standard print function prints the JSON documents in a single line). It is
+        # # # up to you whether you want to use pprint or not.
+        # for i, x in enumerate(cursor):
+        #     pprint.pprint({i: x})
         
 
 
-        """
-        QUERY 2
-        db.dblp.find({ 
-            "author": "Michael Stonebraker", 
-            "booktitle": "ICDE" 
-        }).pretty()
-        """
-        json_query = {
-            "author": "Michael Stonebraker",
-            "booktitle": "ICDE"
-        }
-        cursor = db.dblp.find(json_query)
-        for i, x in enumerate(cursor):
-            pprint.pprint({i: x})
+        # """
+        # QUERY 1
+        # db.dblp.find({ 
+        #     "author": "Michael Stonebraker"
+        # }).pretty()
+        # """
+        # json_query = {
+        #     "author": "Michael Stonebraker"
+        # }
+        # cursor = db.dblp.find(json_query)
+        # for i, x in enumerate(cursor):
+        #     pprint.pprint({i: x})
+        
+
+
+        # """
+        # QUERY 2
+        # db.dblp.find({ 
+        #     "author": "Michael Stonebraker", 
+        #     "booktitle": "ICDE" 
+        # }).pretty()
+        # """
+        # json_query = {
+        #     "author": "Michael Stonebraker",
+        #     "booktitle": "ICDE"
+        # }
+        # cursor = db.dblp.find(json_query)
+        # for i, x in enumerate(cursor):
+        #     pprint.pprint({i: x})
         
 
 
@@ -83,30 +83,30 @@ def main():
         }).pretty()
         """
     
-        json_query = {
-            "$lookup": {
-                "from": "dblp",
-                "localField": "title",
-                "foreignField": "title",
-                "as": "arxivdblp"
-            }
-        }
+        json_query = [
+            { "$group" : { "_id" : None, "title" : { "$sum" : 1 }}},
+            { "$project": { "_id" : 0 }}
+        ]
         cursor = db.arxiv.aggregate(json_query)
         for i, x in enumerate(cursor):
             pprint.pprint({i: x})
         
 
 
-        """
-        QUERY 4
-        db.dblp.find({ 
-            "author": "Michael Stonebraker", 
-            "booktitle": "ICDE"
-        }).explain()
-        """
-        cursor = db.dblp.find(json_query)
-        for i, x in enumerate(cursor):
-            pprint.pprint({i: x})
+        # """
+        # QUERY 4
+        # db.dblp.find({ 
+        #     "author": "Michael Stonebraker", 
+        #     "booktitle": "ICDE"
+        # }).explain()
+        # """
+        # json_query = { 
+        #     "author": "Michael Stonebraker", 
+        #     "booktitle": "ICDE"
+        # }
+        # cursor = db.dblp.explain(json_query)
+        # for i, x in enumerate(cursor):
+        #     pprint.pprint({i: x})
     
     except Exception as e:
         print("Unable to execute simple find() query: {}".format(e))
