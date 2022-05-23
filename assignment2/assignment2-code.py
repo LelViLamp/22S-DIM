@@ -111,7 +111,7 @@ def main():
             "author": "Michael Stonebraker", 
             "booktitle": "ICDE"
         }
-        cursor = db.dblp.explain(json_query)
+        cursor = db.dblp.find(json_query).explain()
         for i, x in enumerate(cursor):
             pprint.pprint({i: x})
     
