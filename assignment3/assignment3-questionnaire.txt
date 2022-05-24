@@ -1,0 +1,77 @@
+UV Distributed Information Management - Questionnaire Assignment 3
+================================================================================
+
+The purpose of this questionnaire is to deepen the student's understanding of
+assignment 3 and the topics covered in the lecture. The main focus will be the
+*correctness* and the *quality* of an answer, not its length. For some
+questions, we will provide rough hints to make it easier for you.
+
+You are free to answer the questions directly in this textfile or use another
+editor/word processor. The following file formats will be accepted for the
+submission: .txt, .pdf, .odt, .doc, .docx. Please note that other file formats
+will result in 0 points (for this questionnaire). The preferred file formats are
+.txt and .pdf (most word processors support an export as PDF file). In any case,
+please make sure that the questions/answers are named/numbered properly!
+
+This questionnaire will be discussed during the after-assignment meeting. Before
+the meeting starts, the group will be informed about the preliminary points by
+the instructor (either at the beginning of the meeting or via Blackboard). The
+final points will be set after the meeting. This questionnaire contributes a
+maximum of 8 points (2 points per answer) to the overall points of assignment 3.
+
+================================================================================
+
+Question F1:
+Neo4j implements many procedures that can be used in combination with the CALL
+keyword. For example, the following statement lists all labels in our database:
+  
+  CALL db.labels()
+
+You can also query the types of relationship that exist in your database. Please
+list all relationship types that are present in your graph database.
+
+Hints:
+List of procedures in Neo4j:
+  - https://neo4j.com/docs/operations-manual/current/reference/procedures
+  - https://neo4j.com/docs/operations-manual/current/reference/procedures/#procedure_db_relationshiptypes
+
+Answer A1:
+<Your answer can go here>
+
+================================================================================
+
+Question F2:
+Let's look into relationship in more depth by using the web-based graphical user
+interface of Neo4j. Execute the following query and have a look at the resulting
+graph:
+
+  MATCH (m:Movie) RETURN m LIMIT 10
+
+Now, click on one of the nodes and three options will pop up. By clicking on
+"Expand / Collapse child relationships", you will see all relationship of this
+specific Movie node. Then, please answer the following subquestions (each
+subanswers is worth 0.5 points):
+
+F2.1: Name the label of the Movie node you selected.
+F2.2: What types of relationships does the Movie node have?
+F2.3: What are the labels of the nodes that these relationships connect to?
+F2.4: What are the directions of these relationships?
+
+Answer A2:
+<Your answer can go here>
+
+================================================================================
+
+Question F3:
+Explain the semantics (i.e., the meaning) of Q3.
+
+Answer A3:
+<Your answer can go here>
+
+================================================================================
+
+Question F4:
+Explain the semantics (i.e., the meaning) of Q4.
+
+Answer A4:
+<Your answer can go here>
