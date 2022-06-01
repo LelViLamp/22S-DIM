@@ -36,7 +36,16 @@ List of procedures in Neo4j:
   - https://neo4j.com/docs/operations-manual/current/reference/procedures/#procedure_db_relationshiptypes
 
 Answer A1:
-<Your answer can go here>
+CALL db.relationshipTypes()
+╒══════════════════╕
+│"IN_GENRE"        │
+├──────────────────┤
+│"RATED"           │
+├──────────────────┤
+│"ACTED_IN"        │
+├──────────────────┤
+│"DIRECTED"        │
+└──────────────────┘
 
 ================================================================================
 
@@ -58,7 +67,12 @@ F2.3: What are the labels of the nodes that these relationships connect to?
 F2.4: What are the directions of these relationships?
 
 Answer A2:
-<Your answer can go here>
+- F2.1: We selected "Sudden Death"
+- F2.2: Relationship Types: IN_GENRE, RATED, ACTED_IN, and DIRECTED.
+- F2.3: Node labels: Movie, Genre, User, Actor, Person, and Director
+- F2.4: 
+  All but one relationship go towards Movie labels (RATED, ACTED_IN, and DIRECTED).
+  The IN_GENRE relationship goes from Movie to Genre labels
 
 ================================================================================
 
@@ -66,7 +80,16 @@ Question F3:
 Explain the semantics (i.e., the meaning) of Q3.
 
 Answer A3:
-<Your answer can go here>
+Our query 3 was:
+CREATE (b:Person { name : "Daniel Kocher" })
+WITH b
+MATCH (m:Movie { title : "Power of Nightmares, The: The Rise of the Politics of Fear" })
+CREATE (b)-[r:DIRECTED]->(m)
+
+It means that:
+- We create a new Person-label node with name "Daniel Kocher" and store it as variable "b"
+- We select the Movie-label node with the mentioned title and store it in variable "m"
+- We add a relationship of type DIRECTED between those nodes.
 
 ================================================================================
 
@@ -74,4 +97,8 @@ Question F4:
 Explain the semantics (i.e., the meaning) of Q4.
 
 Answer A4:
-<Your answer can go here>
+MATCH (m:Movie)
+WHERE m.imdbRating >= 9 AND m.year <= 1990
+RETURN m
+
+- we select all movies that have an IMDB rating of at least 9 and were published before or in 1990
