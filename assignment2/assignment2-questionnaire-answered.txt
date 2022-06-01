@@ -44,7 +44,7 @@ https://docs.mongodb.com/manual/tutorial/insert-documents/
 
 Answer A2:
 
-db.assignment2.insertOne(
+db.arxiv.insertOne(
 { "id" : 7, "submitter" : "Group13", "authors" : "JK, KH, DG, VH", 
 "versions" : { "version" : "v1", "created" : "Mon, 23 May 2022 19:00:00 GMT" },
 "authors_parsed" : [ [ "K", "H", "" ], [ "G", "H", "" ] ]}

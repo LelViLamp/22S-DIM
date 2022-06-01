@@ -6,5 +6,5 @@ Projects/tasks of 22S UV [512.044](https://online.uni-salzburg.at/plus_online/ee
 | Assignment | Due          | Awarded | Max | Total | Cumulative Max. |
 | ---------- | ------------ | ------- | --- | ----- | --------------- |
 | 1          | **20/04**/22 | 18      | 18  | 18    | 18              |
-| 2          | **04/05**/22 | ??      | 18  | ??    | 36              |
+| 2          | **04/05**/22 | 17      | 18  | 35    | 36              |
 | 3          | **15/06**/22 | ??      | 18  | ??    | 54              |

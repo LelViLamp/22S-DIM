@@ -111,9 +111,11 @@ def main():
             "author": "Michael Stonebraker", 
             "booktitle": "ICDE"
         }
-        cursor = db.dblp.find(json_query).explain()
-        for i, x in enumerate(cursor):
+        cursor = db.dblp.find(json_query)
+        result = cursor.explain()
+        for i, x in enumerate(result):
             pprint.pprint({i: x})
+        del result
     
     except Exception as e:
         print("Unable to execute simple find() query: {}".format(e))
