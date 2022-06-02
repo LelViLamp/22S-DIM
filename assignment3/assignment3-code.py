@@ -39,10 +39,11 @@ def insert_director(tx, directorName: str, movieTitle: str):
     """
     # adapted from https://neo4j.com/docs/api/python-driver/current/#example-application
     tx.run(
-        "CREATE (b:Person { name : $name }) "
-        "WITH b "
-        "MATCH (m:Movie { title : $title }) "
-        "CREATE (b)-[r:DIRECTED]->(m)",
+        """
+        CREATE (d:Director { name : $name })
+        WITH d
+        MATCH (m:Movie { title : $title })
+        CREATE (d)-[r:DIRECTED]->(m)""",
         name=directorName, title=movieTitle)
 
 
@@ -130,6 +131,21 @@ def main():
             insert_director,
             directorName="Daniel Kocher",
             movieTitle = "Power of Nightmares, The: The Rise of the Politics of Fear")
+        
+        # cleanup insertion
+        cypher_query = """
+            MATCH (d:Director { name: "Daniel Kocher" })
+            DETACH DELETE d
+            """
+        print("",
+            "--- Cleanup Q3 ---",
+            cypher_query,
+            "Delete just inserted node \"Daniel Kocher\" and its DIRECTED relationship",
+            "This is indicated by DETACH which also deletes all its relationships. With DELETE alone,",
+            "relationships would still exist and an error would be thrown.", sep="\n")
+        result = session.write_transaction(
+            lambda tx: tx.run(cypher_query)
+        )
         
     except Exception as e:
         print("Unable to execute simple MATCH query: {}".format(e))

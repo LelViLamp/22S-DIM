@@ -81,15 +81,17 @@ Explain the semantics (i.e., the meaning) of Q3.
 
 Answer A3:
 Our query 3 was:
-CREATE (b:Person { name : "Daniel Kocher" })
-WITH b
+CREATE (d:Director { name : "Daniel Kocher" })
+WITH d
 MATCH (m:Movie { title : "Power of Nightmares, The: The Rise of the Politics of Fear" })
-CREATE (b)-[r:DIRECTED]->(m)
+CREATE (d)-[r:DIRECTED]->(m)
 
 It means that:
-- We create a new Person-label node with name "Daniel Kocher" and store it as variable "b"
+- We create a new Director-label node with name "Daniel Kocher" and store it as variable "d"
 - We select the Movie-label node with the mentioned title and store it in variable "m"
 - We add a relationship of type DIRECTED between those nodes.
+- This would also work if we used CREATE (d:Person { name : "Daniel Kocher" }), i.e. unlike
+  in relational databases, we are not bound to a strict schema.
 
 ================================================================================
 
