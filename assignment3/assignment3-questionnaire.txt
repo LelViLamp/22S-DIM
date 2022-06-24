@@ -67,7 +67,7 @@ F2.3: What are the labels of the nodes that these relationships connect to?
 F2.4: What are the directions of these relationships?
 
 Answer A2:
-- F2.1: We selected "Sudden Death"
+- F2.1: We selected the Movie-labelled node with title "Sudden Death"
 - F2.2: Relationship Types: IN_GENRE, RATED, ACTED_IN, and DIRECTED.
 - F2.3: Node labels: Movie, Genre, User, Actor, Person, and Director
 - F2.4: 
